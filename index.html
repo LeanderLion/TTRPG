@@ -25,7 +25,7 @@
 
 body{
     margin:0;
-    height:100vh;
+    height:100dvh;
     overflow:hidden;
 
     display:flex;
@@ -81,7 +81,8 @@ body{
     box-shadow:
         0 12px 35px rgba(0,0,0,.35);
 
-    transition:all 1.4s ease;
+    transition:
+        all 1.4s ease;
 
     z-index:1;
 
@@ -313,25 +314,27 @@ body{
 
 .scene.open .letter{
 
+    position:fixed;
+
+    left:50%;
+    top:50%;
+
+    width:min(900px,96vw);
+
+    height:min(90dvh,900px);
+
+    max-height:90dvh;
+
     opacity:1;
 
-    width:90%;
-
-    height:90vh;
-
-    max-height:90vh;
-
-    bottom:5vh;
-
     transform:
-        translateX(-50%)
+        translate(-50%, -50%)
         scale(1);
 
     z-index:100;
 }
 
 .scene.open .letter-content{
-
     opacity:1;
 }
 
@@ -343,36 +346,39 @@ body{
 
     .scene{
         width:100vw;
-        height:100vh;
+        height:100dvh;
     }
 
     .scene.open .letter{
 
-        width:96%;
-        height:95vh;
+        width:96vw;
 
-        max-height:95vh;
+        height:92dvh;
 
-        bottom:2vh;
+        max-height:92dvh;
+
+        left:50%;
+        top:50%;
+
+        transform:
+            translate(-50%, -50%);
     }
 
     .letter-content{
-        padding:24px;
+        padding:20px;
     }
 
     .letter p{
-
-        font-size:1.15rem;
-
+        font-size:1.1rem;
         line-height:1.8;
     }
 
     .recipient{
-        font-size:1.4rem;
+        font-size:1.3rem;
     }
 
     .signature{
-        font-size:1.6rem;
+        font-size:1.5rem;
     }
 
     .house{
@@ -403,35 +409,44 @@ body{
 
             <h1>A Personal Correspondence</h1>
 
+            <p>Lady Tallis,</p>
+
             <p>
-                Lady Tallis,
+                I trust you and your companion, Miss Two-Knives,
+                have fared well since we last met. We have not yet
+                picked up the trail of Fnar's armour but undoubtedly
+                will. I, of course, shall keep you advised of our
+                progress and see no reason that we should not all
+                be guesting in the City of Artifice by year's end.
             </p>
 
             <p>
-                I trust you and your companion, M. Two-Knives, have
-                fared well since we last met. We have not yet picked up
-                the trail of Fnar's armour but undoubtedly will. I,
-                of course, will update you on our progress and see no
-                reason that we should not all be guesting in the City of
-                Artifice by year's end.
+                I was wondering, however, between then and now,
+                whether you would be willing to grace me with
+                your company?
             </p>
 
             <p>
-                I was wondering, however, between then and now, whether
-                you would be willing to grace me with your company?
-                There is a quaint tourist establishment, down the river
-                south of Lakeside, where they offer, of all things,
-                water tasting, bathing, and accommodation.
+                There is a quaint tourist establishment down the river
+                south of Lakeside where they offer, of all things,
+                water tasting, bathing and accommodation.
             </p>
 
             <p>
-                Please send your acceptance, and any further correspondence
-                care of one Vandrick Shorewalker at Lakeside, a most
-                resourceful fellow!
+                Please send your acceptance and any further
+                correspondence care of one Vandrick Shorewalker
+                at Lakeside, a most resourceful fellow.
             </p>
 
-            <!-- Add as much additional text as you want here -->
-            <!-- The letter will scroll automatically -->
+            <p>
+                I remain, as ever, your devoted friend and
+                occasional accomplice in matters both sensible
+                and regrettable.
+            </p>
+
+            <p>
+                May fortune favour your path.
+            </p>
 
             <div class="signature">
                 Xandor Thistledrop III
