@@ -49,9 +49,9 @@ body{
     height:850px;
 }
 
-/* ==========================
+/* ==================================
    LETTER
-   ========================== */
+   ================================== */
 
 .letter{
 
@@ -69,8 +69,6 @@ body{
 
     opacity:0;
 
-    overflow:hidden;
-
     background:
         linear-gradient(
             180deg,
@@ -83,10 +81,35 @@ body{
     box-shadow:
         0 12px 35px rgba(0,0,0,.35);
 
-    transition:
-        all 1.4s ease;
+    transition:all 1.4s ease;
 
     z-index:1;
+
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    -webkit-overflow-scrolling:touch;
+
+    scrollbar-width:thin;
+    scrollbar-color:#8b6b3d #e2d1a8;
+}
+
+.letter::-webkit-scrollbar{
+    width:12px;
+}
+
+.letter::-webkit-scrollbar-track{
+    background:#e2d1a8;
+}
+
+.letter::-webkit-scrollbar-thumb{
+    background:#8b6b3d;
+    border-radius:10px;
+    border:2px solid #e2d1a8;
+}
+
+.letter::-webkit-scrollbar-thumb:hover{
+    background:#6f532d;
 }
 
 .letter-content{
@@ -152,9 +175,9 @@ body{
     color:#24170d;
 }
 
-/* ==========================
+/* ==================================
    ENVELOPE
-   ========================== */
+   ================================== */
 
 .envelope{
 
@@ -274,13 +297,13 @@ body{
     margin:12px 0;
 }
 
-/* ==========================
+/* ==================================
    OPEN STATE
-   ========================== */
+   ================================== */
 
 .scene.open .envelope{
 
-    opacity:.15;
+    opacity:.12;
 
     transform:
         translateX(-50%)
@@ -294,15 +317,17 @@ body{
 
     width:90%;
 
-    height:120%;
+    height:90vh;
 
-    bottom:20px;
+    max-height:90vh;
+
+    bottom:5vh;
 
     transform:
         translateX(-50%)
         scale(1);
 
-    z-index:100; /*was 100*/
+    z-index:100;
 }
 
 .scene.open .letter-content{
@@ -310,18 +335,36 @@ body{
     opacity:1;
 }
 
-/* ==========================
+/* ==================================
    MOBILE
-   ========================== */
+   ================================== */
 
 @media(max-width:768px){
 
+    .scene{
+        width:100vw;
+        height:100vh;
+    }
+
+    .scene.open .letter{
+
+        width:96%;
+        height:95vh;
+
+        max-height:95vh;
+
+        bottom:2vh;
+    }
+
     .letter-content{
-        padding:30px;
+        padding:24px;
     }
 
     .letter p{
-        font-size:1.2rem;
+
+        font-size:1.15rem;
+
+        line-height:1.8;
     }
 
     .recipient{
@@ -329,6 +372,14 @@ body{
     }
 
     .signature{
+        font-size:1.6rem;
+    }
+
+    .house{
+        font-size:1.2rem;
+    }
+
+    .letter h1{
         font-size:1.5rem;
     }
 }
@@ -357,30 +408,33 @@ body{
             </p>
 
             <p>
-                I trust you and your companion, M. Two-Knives, have 
-				fared well since we last met. We have not yet picked up
-				the trail of Fnar's armour but undoubtably will. I,
-				of course, will update you on our progress and see no 
-				reason that we should not all be guesting in the City of 
-				Artifice by year's end.
+                I trust you and your companion, M. Two-Knives, have
+                fared well since we last met. We have not yet picked up
+                the trail of Fnar's armour but undoubtedly will. I,
+                of course, will update you on our progress and see no
+                reason that we should not all be guesting in the City of
+                Artifice by year's end.
             </p>
 
             <p>
-                I was wondering, however, between then and now, whether 
-				you would be willing to grace me with with your company? 
-				There is a quaint tourist establishment, down the river 
-				South of Lakeside where they offer, of all things, water 
-				tasting, bathing, and accomodation.
+                I was wondering, however, between then and now, whether
+                you would be willing to grace me with your company?
+                There is a quaint tourist establishment, down the river
+                south of Lakeside, where they offer, of all things,
+                water tasting, bathing, and accommodation.
             </p>
 
             <p>
-                Please send your acceptance, and any further correspondence 
-				care of one Vandrick Shorewalker at Lakeside, a most 
-				resourceful fellow!
+                Please send your acceptance, and any further correspondence
+                care of one Vandrick Shorewalker at Lakeside, a most
+                resourceful fellow!
             </p>
 
-             <div class="signature">
-                Xandor Thistledrop xx
+            <!-- Add as much additional text as you want here -->
+            <!-- The letter will scroll automatically -->
+
+            <div class="signature">
+                Xandor Thistledrop III
             </div>
 
         </div>
@@ -400,14 +454,16 @@ body{
             </div>
 
             <div class="recipient">
-                Lady Tallis WELLES <br>
-				CELESTIAL FIRE
+                Lady Tallis Welles<br>
+                Celestial Fire
             </div>
 
             <div class="recipient">
-                c/o The Quest Guild <br>
-				Eris Town (nr. Lakeside)
-            </</div>
+                c/o The Quest Guild<br>
+                Eris Town (near Lakeside)
+            </div>
+
+        </div>
 
     </div>
 
