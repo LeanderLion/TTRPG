@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Letter from Xandor Thistledrop III</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=MedievalSharp&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --paper:#f4ebcb;
+    --paper-light:#fbf6e7;
+    --ink:#2f2114;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    repeating-linear-gradient(
+        90deg,
+        #4b3523 0px,
+        #4b3523 60px,
+        #5d432c 60px,
+        #5d432c 120px
+    );
+}
+
+.scene{
+    position:relative;
+    width:1100px;
+    max-width:95vw;
+    height:850px;
+}
+
+/* ==========================
+   LETTER
+   ========================== */
+
+.letter{
+
+    position:absolute;
+
+    left:50%;
+    bottom:120px;
+
+    width:72%;
+    height:180px;
+
+    transform:
+        translateX(-50%)
+        scale(.92);
+
+    opacity:0;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--paper-light),
+            var(--paper)
+        );
+
+    border:2px solid #c2a76c;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.35);
+
+    transition:
+        all 1.4s ease;
+
+    z-index:1;
+}
+
+.letter-content{
+
+    opacity:0;
+
+    padding:60px;
+
+    transition:
+        opacity .5s ease .9s;
+}
+
+.house{
+
+    text-align:center;
+
+    font-family:'Cinzel', serif;
+
+    letter-spacing:4px;
+
+    font-size:2rem;
+
+    color:#65492e;
+}
+
+.divider{
+
+    border:none;
+
+    border-top:2px solid #aa8f59;
+
+    margin:25px 0 40px;
+}
+
+.letter h1{
+
+    text-align:center;
+
+    font-family:'Cinzel', serif;
+
+    font-size:2.2rem;
+}
+
+.letter p{
+
+    font-family:'MedievalSharp', cursive;
+
+    font-size:1.45rem;
+
+    line-height:1.9;
+
+    color:var(--ink);
+}
+
+.signature{
+
+    margin-top:60px;
+
+    font-family:'Uncial Antiqua', cursive;
+
+    font-size:2.2rem;
+
+    color:#24170d;
+}
+
+/* ==========================
+   ENVELOPE
+   ========================== */
+
+.envelope{
+
+    position:absolute;
+
+    left:50%;
+    bottom:80px;
+
+    transform:translateX(-50%);
+
+    width:750px;
+    max-width:90vw;
+
+    height:470px;
+
+    cursor:pointer;
+
+    background:
+        linear-gradient(
+            180deg,
+            #efe1bc,
+            #dcc594
+        );
+
+    border:2px solid #b99965;
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.35);
+
+    transition:
+        all 1.2s ease;
+
+    z-index:10;
+}
+
+.envelope::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:18px;
+
+    border:1px solid rgba(100,70,30,.18);
+}
+
+.envelope::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            45deg,
+            transparent 49.5%,
+            rgba(100,80,40,.10) 50%,
+            transparent 50.5%
+        ),
+        linear-gradient(
+            -45deg,
+            transparent 49.5%,
+            rgba(100,80,40,.10) 50%,
+            transparent 50.5%
+        );
+
+    pointer-events:none;
+}
+
+.envelope-header{
+
+    text-align:center;
+
+    margin-top:40px;
+
+    font-family:'Cinzel', serif;
+
+    letter-spacing:2px;
+
+    color:#5b4227;
+
+    font-size:1rem;
+}
+
+.address{
+
+    position:absolute;
+
+    top:130px;
+
+    width:100%;
+
+    text-align:center;
+}
+
+.to-label{
+
+    font-family:'Cinzel', serif;
+
+    font-size:1.5rem;
+
+    margin-bottom:25px;
+
+    color:#372719;
+}
+
+.recipient{
+
+    font-family:'MedievalSharp', cursive;
+
+    font-size:1.8rem;
+
+    color:#372719;
+
+    margin:12px 0;
+}
+
+/* ==========================
+   OPEN STATE
+   ========================== */
+
+.scene.open .envelope{
+
+    opacity:.15;
+
+    transform:
+        translateX(-50%)
+        translateY(120px)
+        scale(.95);
+}
+
+.scene.open .letter{
+
+    opacity:1;
+
+    width:90%;
+
+    height:120%;
+
+    bottom:20px;
+
+    transform:
+        translateX(-50%)
+        scale(1);
+
+    z-index:100; /*was 100*/
+}
+
+.scene.open .letter-content{
+
+    opacity:1;
+}
+
+/* ==========================
+   MOBILE
+   ========================== */
+
+@media(max-width:768px){
+
+    .letter-content{
+        padding:30px;
+    }
+
+    .letter p{
+        font-size:1.2rem;
+    }
+
+    .recipient{
+        font-size:1.4rem;
+    }
+
+    .signature{
+        font-size:1.5rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="scene" id="scene">
+
+    <div class="letter">
+
+        <div class="letter-content">
+
+            <div class="house">
+                ✦ XANDOR THISTLEDROP III ✦
+            </div>
+
+            <hr class="divider">
+
+            <h1>A Personal Correspondence</h1>
+
+            <p>
+                Lady Tallis,
+            </p>
+
+            <p>
+                I trust you and your companion, Miss Two-Knives, have 
+				fared well since we last met. We have not yet picked up
+				the trail of Fnar's armour but undoubtably will. I,
+				of course, will update you on our progress and see no 
+				reason that we should not all be guesting in the City of 
+				Artifice by year's end.
+            </p>
+
+            <p>
+                I was wondering, however, between then and now, whether 
+				you would be willing to grace me with with your company? 
+				There is a quaint tourist establishment, down the river 
+				South of Lakeside where they offer, of all things, water 
+				tasting, bathing, and accomodation. They seem to be 
+				recovering from a period of misfortune, but whomever their
+				patrons are appear to have truly turned their fortunes 
+				around!
+            </p>
+
+            <p>
+                Please send your acceptance, and any further correspondence 
+				care of one Vandrick Shorewalker at Lakeside, a most 
+				resourceful fellow!
+            </p>
+
+             <div class="signature">
+                Xandor Thistledrop xx
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="envelope" onclick="openLetter()">
+
+        <div class="envelope-header">
+            Correspondence of X. Thistledrop III
+        </div>
+
+        <div class="address">
+
+            <div class="to-label">
+                To:
+            </div>
+
+            <div class="recipient">
+                Lady Tallis WELLES <br>
+				CELESTIAL FIRE
+            </div>
+
+            <div class="recipient">
+                c/o The Quest Guild <br>
+				Eris Town (nr. Lakeside)
+            </</div>
+
+    </div>
+
+</div>
+
+<script>
+function openLetter() {
+    document
+        .getElementById("scene")
+        .classList.add("open");
+}
+</script>
+
+</body>
+</html>
